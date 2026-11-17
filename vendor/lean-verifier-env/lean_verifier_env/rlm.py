@@ -35,7 +35,7 @@ RLM_SYSTEM_PROMPT = (
 
 # Lean + Mathlib sandbox image (built from sandbox/Dockerfile, pushed to the Prime
 # registry). Override with the `sandbox_image` kwarg or LEAN_RLM_SANDBOX_IMAGE env var.
-LEAN_SANDBOX_IMAGE = "cmg769y0r000vlqtz7j8u5o8a/lean-rlm-sandbox:v1"
+LEAN_SANDBOX_IMAGE = None  # Set LEAN_RLM_SANDBOX_IMAGE to your own published image.
 
 # System prompt for the in-sandbox path: the root model runs Python in a sandbox with
 # Lean + Mathlib + the `lean_check` CLI baked in. This follows Prime's RLM shape: keep
@@ -154,6 +154,11 @@ def make_rlm_env(
 
     if in_sandbox_verify:
         image = sandbox_image or os.environ.get("LEAN_RLM_SANDBOX_IMAGE") or LEAN_SANDBOX_IMAGE
+        if not image:
+            raise ValueError(
+                "RLM sandbox mode requires sandbox_image or LEAN_RLM_SANDBOX_IMAGE. "
+                "Build sandbox/Dockerfile and publish the image to your own registry."
+            )
         sandbox_env = dict(rlm_kwargs.pop("sandbox_environment_vars", {}) or {})
         sandbox_env.setdefault("LEAN_CHECK_TIMEOUT_S", str(lean_check_timeout_s))
         rlm_kwargs.setdefault("repl_language", "python")

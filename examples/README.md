@@ -1,6 +1,6 @@
 # Real Lean verifier experiment
 
-Tested lean-verifier-env 0.10.0 and local patch 0.10.0+local.1 with verifiers 0.1.14, Lean 4.28.0, and
+Tested lean-verifier-env 0.10.0 and local patches 0.10.0+local.1/local.2 with verifiers 0.1.14, Lean 4.28.0, and
 leanprover-community/repl v4.28.0 (commit 527590ce2b9f3b5c4a9a1031e5b8fcfb909b9a4a).
 Uses the unmodified LocalLeanChecker with the patched candidate scorer and rubric
 functions. No mocked verification and no inference/API calls. Core Lean's Init

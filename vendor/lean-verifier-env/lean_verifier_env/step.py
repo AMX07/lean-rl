@@ -56,6 +56,7 @@ class StepLeanEnv(vf.MultiTurnEnv):
             await self._close(state)
         return state
 
+    @vf.cleanup
     async def _close(self, state) -> None:
         sid = state.get("step_sid")
         if sid and not state.get("step_closed"):
@@ -88,7 +89,8 @@ class StepLeanEnv(vf.MultiTurnEnv):
             state["step_done"] = True
             state["step_reward"] = 1.0
 
-    async def is_completed(self, *args, **kwargs) -> bool:
+    @vf.stop(priority=10)
+    async def proof_finished(self, *args, **kwargs) -> bool:
         messages, state = _resolve(args, kwargs)
         if _last_assistant_content(messages) is not None:
             await self._ensure_applied(messages, state)
@@ -102,4 +104,4 @@ class StepLeanEnv(vf.MultiTurnEnv):
         messages, state = _resolve(args, kwargs)
         await self._ensure_applied(messages, state)
         feedback = state.get("step_feedback") or _format_goals(state.get("step_goals"))
-        return [{"role": "user", "content": feedback}], state
+        return [{"role": "user", "content": feedback}]

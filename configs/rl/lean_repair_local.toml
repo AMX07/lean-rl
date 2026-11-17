@@ -1,0 +1,32 @@
+# Prime RL v0.6.0 schema; see docs/TRAINING.md for worker/version setup.
+max_steps = 100
+seq_len = 8192
+
+[model]
+name = "Qwen/Qwen3-4B-Instruct-2507"
+
+[ckpt]
+
+[trainer.model]
+impl = "auto"
+
+[trainer.model.lora]
+rank = 32
+alpha = 64
+
+[trainer.optim]
+lr = 1e-5
+
+[orchestrator]
+batch_size = 32
+group_size = 4
+
+[orchestrator.train.sampling]
+max_completion_tokens = 2048
+
+[[orchestrator.train.env]]
+id = "lean-verifier-env"
+name = "lean-repair"
+args = {mode = "repair", dataset_name = "lean-workbook", checker_backend = "local", max_turns = 3, lean_pool_size = 2}
+
+[inference]

@@ -1,0 +1,196 @@
+{
+  "source": "pradheep/lean-verifier-env@0.10.0",
+  "retrieved": "2026-11-17",
+  "files": [
+    {
+      "upstream_path": "README.md",
+      "local_path": "docs/UPSTREAM_README.md",
+      "sha256": "2f3457737acca4527fadc33332c8f3aa36583ff173fdd8734590ebab42d69a76"
+    },
+    {
+      "upstream_path": "configs/endpoints.toml",
+      "local_path": "configs/endpoints.toml",
+      "sha256": "c66afa154daeb1739d4ca79e484346d05680f9f23b4db68f849e701b1c689444"
+    },
+    {
+      "upstream_path": "lean_verifier_env/__init__.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/__init__.py",
+      "sha256": "d1174edf7ede841fa08b69e1b1494aa0c407f64e5fa0b4132ce696926de4e947"
+    },
+    {
+      "upstream_path": "lean_verifier_env/agentic.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/agentic.py",
+      "sha256": "7c847f369d83b2f73842d76b5c848b844dc54669109899f9495cd67f48c2d683"
+    },
+    {
+      "upstream_path": "lean_verifier_env/axiom_client.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/axiom_client.py",
+      "sha256": "44ebf423a80812bd300b2bf317d46966d78a7ef96e9bd593bd85db17c0a78ec1"
+    },
+    {
+      "upstream_path": "lean_verifier_env/checker.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/checker.py",
+      "sha256": "b9c2b27ac97e5df307eec0c0d13cc71a21bca2530f16bfa39ac79f934d860bdd"
+    },
+    {
+      "upstream_path": "lean_verifier_env/checkers.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/checkers.py",
+      "sha256": "809ff3fb48bbdb6858a129b94ff5c6ddaa7b189128e4f201097cddaf32382297"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/__init__.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/__init__.py",
+      "sha256": "43864e75317e1f5b073fddbe6a44044ed450b85254f43c4273d6370443aca47c"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/clean.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/clean.py",
+      "sha256": "6dfd67234353c963f6fd135b1af697fd0a96297700763c4ac3253bb8048ca18d"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/cleaned/lean_workbook_train.jsonl",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/cleaned/lean_workbook_train.jsonl",
+      "sha256": "af3fe1b285629ec6e942b6bd64bd99eed8aa6a4d4749f21897d3cb3e72ec8703"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/cleaned/minif2f_test.jsonl",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/cleaned/minif2f_test.jsonl",
+      "sha256": "098fbe154c0442ae394f1d5a41cd3f4729366203c9550ddb1615fb2d93646be2"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/cleaned/minif2f_valid.jsonl",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/cleaned/minif2f_valid.jsonl",
+      "sha256": "434b57b0d2707499a8733f53bbc46a9ca0c098739c5595018be3477b8f04a831"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/cleaned/proofnet_test.jsonl",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/cleaned/proofnet_test.jsonl",
+      "sha256": "364270702505fe48cf1033fd06949e8b2d225262d71b50fee55dcf5727a12c2a"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/cleaned/putnam.jsonl",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/cleaned/putnam.jsonl",
+      "sha256": "72af0489817cf875b88d6e658df3dfab789998bbbae00911abc11b575f510899"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/generate.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/generate.py",
+      "sha256": "78b9f64efbffb38485fc5b94dc84f204c1ba4204c7192c3a2a5ce1993d905ac1"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/lean_syntax.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/lean_syntax.py",
+      "sha256": "99f13a0d404feae36850c4b4af71a4a994703946959cdfe19a9e7797ab020a62"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/lean_workbook.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/lean_workbook.py",
+      "sha256": "a19665264f6b04b3f9414df680181f87e521231537f1ec37e25d1c1447176330"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/loaders.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/loaders.py",
+      "sha256": "63754dd519860a45640de38e983eb847d8bbbec2e2403d6890b326d0f27bcc40"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/minif2f.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/minif2f.py",
+      "sha256": "fed0952e0f3480f7a5b912ee97cb96853e456b8a9478216257386cb2da68f4db"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/proofnet.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/proofnet.py",
+      "sha256": "f7844a690304bc967c35eebb3d1b961f62df2ee8edf7f6bd08ad373c236249a0"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/putnam.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/putnam.py",
+      "sha256": "785311c95794cd8f79529ab769116d7b1322d9a70b05d778bee0295c00999136"
+    },
+    {
+      "upstream_path": "lean_verifier_env/datasets/toy.jsonl",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/datasets/toy.jsonl",
+      "sha256": "b8d8f356b451f7b38456ed91858a408ebec20739cae647bcd1982aa359a9feba"
+    },
+    {
+      "upstream_path": "lean_verifier_env/diagnostics.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/diagnostics.py",
+      "sha256": "8e44c7862bbc88ec4e3184660bc2ef69003dc6025344fa2970fbb36a360f216e"
+    },
+    {
+      "upstream_path": "lean_verifier_env/env.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/env.py",
+      "sha256": "9bf401f81eff1f5587ff266599f34bbdc713cde61648332d0825a61d74028b67"
+    },
+    {
+      "upstream_path": "lean_verifier_env/filters.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/filters.py",
+      "sha256": "6b516250c85ba77cfa2fe9cf5efa6844f0a330db7a7b7a39782707d68eefb857"
+    },
+    {
+      "upstream_path": "lean_verifier_env/local_lean.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/local_lean.py",
+      "sha256": "b04e2271ca5ed880a1383763d63993fcaf24d435f8284fe10d6cf8b79b5b6030"
+    },
+    {
+      "upstream_path": "lean_verifier_env/multiturn.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/multiturn.py",
+      "sha256": "e95f5a503a682b1ed6f353124dbcdc0b6c78e74a84943db262c04082bd2e8630"
+    },
+    {
+      "upstream_path": "lean_verifier_env/report.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/report.py",
+      "sha256": "a767f3c626d722743ac0c9302ae27826d0d8180c687282f4dc045f0dec3d281d"
+    },
+    {
+      "upstream_path": "lean_verifier_env/reward.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/reward.py",
+      "sha256": "b69766464d774df2a472a73e606fd3504e4bb4b1847004006ce5d5f34b577a57"
+    },
+    {
+      "upstream_path": "lean_verifier_env/rlm.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/rlm.py",
+      "sha256": "af92dc5e101ce3df85fd22898fbf325dd2ab0a8d46073731ce959715e29dd633"
+    },
+    {
+      "upstream_path": "lean_verifier_env/search.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/search.py",
+      "sha256": "5e3cab109b209008f13c40c77e0c833136cbea21220c423ed959def4778e47c4"
+    },
+    {
+      "upstream_path": "lean_verifier_env/step.py",
+      "local_path": "vendor/lean-verifier-env/lean_verifier_env/step.py",
+      "sha256": "04998fe98709c882f7a395c0f4a06b57e510565f32bf4c45367172bc6d6e28e8"
+    },
+    {
+      "upstream_path": "pyproject.toml",
+      "local_path": "docs/UPSTREAM_pyproject.toml",
+      "sha256": "95e3e799e22d23dc121145c3ddfb58d6abcbf7d6c6135da6ccfb5c62b5c1b6cc"
+    },
+    {
+      "upstream_path": "sandbox/Dockerfile",
+      "local_path": "sandbox/Dockerfile",
+      "sha256": "658494f4f0f1042c92318393226756e02da9160465172ad40c02d42015029cc4"
+    },
+    {
+      "upstream_path": "sandbox/README.md",
+      "local_path": "sandbox/README.md",
+      "sha256": "e82dd53a0ee2f59da27646bbe3d617d8aeec11c4d69030074d7d6603a702e931"
+    },
+    {
+      "upstream_path": "sandbox/lean_check.py",
+      "local_path": "sandbox/lean_check.py",
+      "sha256": "860f6c662f3e3fb28deecd401ba09c6629a54a931af58970d209757f51071093"
+    },
+    {
+      "upstream_path": "scripts/run_leaderboard.py",
+      "local_path": "scripts/run_leaderboard.py",
+      "sha256": "521b8698efda8b41b76c06d73396f0d0b9fe944312549f63312a8c375acb0bc6"
+    },
+    {
+      "upstream_path": "scripts/run_maxproof_lite.py",
+      "local_path": "scripts/run_maxproof_lite.py",
+      "sha256": "6b8fc808a38f6142ee6133c73056280723977d6eefd307103329fcf4161ec7c7"
+    }
+  ]
+}

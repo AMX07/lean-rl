@@ -1,0 +1,55 @@
+[project]
+name = "lean-verifier-env"
+description = "Lean proof-verification environment for Prime Intellect / verifiers (AXLE or local Lean backend)."
+version = "0.10.0"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Pradheep" }]
+keywords = ["lean", "theorem-proving", "verification", "reinforcement-learning", "verifiers"]
+dependencies = [
+    "verifiers",
+    "datasets",
+    "httpx",
+]
+tags = ["lean", "theorem-proving", "verification", "axle", "eval", "train"]
+
+[project.urls]
+Homepage = "https://github.com/Mantissagithub/lean-verifier-env"
+Repository = "https://github.com/Mantissagithub/lean-verifier-env"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+# The local Lean backend needs external tooling (Lean via elan + the
+# leanprover-community/repl binary + a Mathlib project), not a pip dependency.
+# See the README "Verification backends" section. This extra is a marker only.
+local = []
+# RLM mode (Prime RLMEnv) needs newer verifiers + Prime sandboxes; run on Prime.
+rlm = ["verifiers>=0.1.14", "prime-sandboxes"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = [
+    "lean_verifier_env/**/*.py",
+    "lean_verifier_env/datasets/**/*.jsonl",
+    "configs/**/*.toml",
+    "README.md",
+    "pyproject.toml",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["lean_verifier_env"]
+
+[tool.verifiers]
+# Module exposing load_environment.
+module = "lean_verifier_env"
+
+[tool.verifiers.eval]
+num_examples = 5
+rollouts_per_example = 3
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

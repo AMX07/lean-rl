@@ -4,12 +4,28 @@ build-backend = "hatchling.build"
 
 [project]
 name = "lean-verifier-env"
-version = "0.10.0+local.1"
+version = "0.10.0+local.2"
 description = "Local correctness patch of pradheep/lean-verifier-env 0.10.0"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "Pradheep"}]
 dependencies = ["verifiers==0.1.14", "datasets", "httpx"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio"]
+local = []
+rlm = ["prime-sandboxes"]
+
+[project.urls]
+Repository = "https://github.com/AMX07/lean-rl"
+Upstream = "https://github.com/Mantissagithub/lean-verifier-env"
+
+[tool.verifiers]
+module = "lean_verifier_env"
+
+[tool.verifiers.eval]
+num_examples = 5
+rollouts_per_example = 3
 
 [tool.hatch.build.targets.wheel]
 packages = ["lean_verifier_env"]

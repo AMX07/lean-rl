@@ -10,7 +10,7 @@ Each raw row uses the shared JSONL schema (plan section 7):
      "proof", "difficulty", "tags", "timeout_s"}
 
 and is normalized into the verifiers column layout: ``question``, ``answer``, ``info``,
-``task``.
+without legacy string ``task`` routing (unsupported by the pinned runtime).
 """
 
 from __future__ import annotations
@@ -49,7 +49,6 @@ def _to_example(row: dict) -> dict:
             "timeout_s": row.get("timeout_s", 10),
             "difficulty": row.get("difficulty", "unknown"),
         },
-        "task": "lean-proof",
     }
 
 

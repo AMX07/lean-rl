@@ -1,0 +1,37 @@
+# Model -> Prime Inference (OpenAI-compatible) registry for lean-verifier-env.
+# Used by verifiers when resolving a `model` id, e.g.:
+#   prime eval run pradheep/lean-verifier-env -m openai/gpt-4.1-nano -e configs/endpoints.toml
+# Shipped under configs/ so hosted workers find ./configs/endpoints.toml.
+# Auth: PRIME_API_KEY (falls back to ~/.prime/config.json from `prime login`).
+# Model ids are from the Prime Inference catalog (GET https://api.pinference.ai/api/v1/models),
+# which differs from the hosted-training catalog (`prime train models`).
+
+[[endpoint]]
+endpoint_id = "meta-llama/Llama-3.2-3B-Instruct"
+model = "meta-llama/Llama-3.2-3B-Instruct"
+api_base_url = "https://api.pinference.ai/api/v1"
+api_key_var = "PRIME_API_KEY"
+
+[[endpoint]]
+endpoint_id = "meta-llama/llama-3.3-70b-instruct"
+model = "meta-llama/llama-3.3-70b-instruct"
+api_base_url = "https://api.pinference.ai/api/v1"
+api_key_var = "PRIME_API_KEY"
+
+[[endpoint]]
+endpoint_id = "openai/gpt-4.1-nano"
+model = "openai/gpt-4.1-nano"
+api_base_url = "https://api.pinference.ai/api/v1"
+api_key_var = "PRIME_API_KEY"
+
+[[endpoint]]
+endpoint_id = "openai/gpt-oss-20b"
+model = "openai/gpt-oss-20b"
+api_base_url = "https://api.pinference.ai/api/v1"
+api_key_var = "PRIME_API_KEY"
+
+[[endpoint]]
+endpoint_id = "openai/gpt-oss-120b"
+model = "openai/gpt-oss-120b"
+api_base_url = "https://api.pinference.ai/api/v1"
+api_key_var = "PRIME_API_KEY"

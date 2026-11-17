@@ -1,0 +1,15 @@
+name: Environment tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.13.5"
+      - run: uv sync --locked --python 3.12
+      - run: bash scripts/setup_lean.sh
+      - run: uv run --locked pytest -q
+      - run: uv run --locked python examples/run_verifier.py
+      - run: uv build --project vendor/lean-verifier-env

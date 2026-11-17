@@ -64,7 +64,8 @@ def _resolve(args, kwargs):
     if state is None:
         state = next((a for a in args if isinstance(a, dict)), {})
     if messages is None and isinstance(state, dict):
-        messages = state.get("completion") or state.get("prompt") or []
+        trajectory = state.get("trajectory") or []
+        messages = (trajectory[-1].get("completion") if trajectory else None) or state.get("completion") or state.get("prompt") or []
     return messages or [], state if isinstance(state, dict) else {}
 
 
@@ -89,10 +90,9 @@ class LeanRepairEnv(vf.MultiTurnEnv):
         state["checked_turn"] = turn
         state.setdefault("attempts", []).append(ev.reward)
 
-    async def is_completed(self, *args, **kwargs) -> bool:
+    @vf.stop(priority=10)
+    async def proof_verified(self, *args, **kwargs) -> bool:
         messages, state = _resolve(args, kwargs)
-        if self.max_turns > 0 and _turn_count(state) >= self.max_turns:
-            return True
         if _last_assistant_content(messages) is None:
             return False  # no proof submitted yet (initial prompt)
         await self._ensure_checked(messages, state)
@@ -103,4 +103,4 @@ class LeanRepairEnv(vf.MultiTurnEnv):
         await self._ensure_checked(messages, state)
         feedback = state.get("lean_feedback") or "(no diagnostics returned)"
         reply = [{"role": "user", "content": REPAIR_TEMPLATE.format(feedback=feedback)}]
-        return reply, state
+        return reply

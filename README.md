@@ -1,41 +1,83 @@
-# Lean RL verifier experiments
+# Lean verifier RL environment
 
-Local experiments and a correctness patch for Prime Intellect's
-[`pradheep/lean-verifier-env`](https://app.primeintellect.ai/dashboard/environments/pradheep/lean-verifier-env),
-based on published version 0.10.0 by Pradheep. The patched copy is version
-`0.10.0+local.1`; this is an independent project, not an upstream release.
+A complete copy of the **published source** of `pradheep/lean-verifier-env@0.10.0`,
+with local correctness fixes, reproducible dependencies, training templates,
+evaluation/search scripts, container setup, and tests. Local version:
+`0.10.0+local.2`. This is an independent derivative, not an upstream release.
 
-The example models a Python increment function in Lean, verifies its proof,
-and tests malformed and adversarial submissions against the real Lean backend.
-The local patch rejects theorem wrappers that introduce extra assumptions and
-stops rejecting harmless comments containing forbidden words.
+The environment gives a model a Lean theorem, checks its submitted proof with
+Lean, and returns rewards for RL or evaluation. It does not translate Python
+programs into Lean or include a trained model or GPU trainer implementation.
 
-- [Experiment, results, and regression runner](examples/README.md)
-- [Patch scope and compatibility limitations](vendor/lean-verifier-env/README.md)
-- [Original results](examples/results/before-fix.json)
-- [Patched results](examples/results/results.json)
-
-## Python setup
+## Setup and verify
 
 ```sh
-uv venv .venv
-uv pip install --python .venv/bin/python -e vendor/lean-verifier-env
+uv sync --locked
+bash scripts/setup_lean.sh
+uv run --locked pytest -q
+uv run --locked python examples/run_verifier.py
+uv run --locked python scripts/check_environment.py --core
 ```
 
-The regression runner also needs Lean 4.28.0 and the community REPL v4.28.0.
-It expects a workspace-local elan installation in `.tools/elan` and a built
-REPL at `.tools/repl/.lake/build/bin/repl`. These downloaded tools and the
-virtual environment are intentionally excluded from Git. Mathlib is not needed
-for the small examples, which use Lean's `Init` library.
+The small integration tests use Lean's `Init` library. For bundled training
+and benchmark datasets, install Mathlib too (a larger download):
 
 ```sh
-uv run --python .venv/bin/python examples/run_verifier.py
+bash scripts/setup_lean.sh --with-mathlib
+source scripts/lean_env.sh
+uv run --locked python scripts/check_environment.py
 ```
 
-The recorded patched run passed all 12 regression cases. This is not a general
-soundness audit: the patch deliberately restricts submissions to tactic bodies
-or exact standalone declarations rather than arbitrary Lean files. The Python
-model is translated by hand; no Python-to-Lean translation is verified here.
+Lean, REPL, and Mathlib target **4.28.0**. Toolchains and model outputs stay out
+of Git. `uv.lock` pins Python dependencies, including legacy `verifiers==0.1.14`.
 
-Vendored package authorship and its declared MIT license are retained in
-`vendor/lean-verifier-env/pyproject.toml`.
+## Contents
+
+| Component | Location |
+|---|---|
+| Every published Python module/dataset | `vendor/lean-verifier-env/` |
+| Single, repair, tool, tactic-step, recursive modes | Package `env.py` |
+| Training templates (tool and repair) | `configs/rl/` |
+| Leaderboard and candidate search | `scripts/run_leaderboard.py`, `scripts/run_maxproof_lite.py` |
+| Local checker setup and smoke test | `scripts/setup_lean.sh`, `scripts/check_environment.py` |
+| CPU environment and recursive sandbox images | `Dockerfile`, `sandbox/` |
+| Tests and CI | `tests/`, `.github/workflows/test.yml` |
+| Original-versus-patched examples | `examples/` |
+
+## Use
+
+```python
+from verifiers import load_environment
+
+env = load_environment(
+    "lean-verifier-env", mode="tool", dataset_name="lean-workbook",
+    checker_backend="local", max_turns=4, lean_pool_size=2,
+)
+```
+
+The local checker reads paths exported by `scripts/lean_env.sh`. Hosted AXLE
+checking uses `AXLE_API_KEY` and `checker_backend="axle"`. Recursive sandbox
+runs require your own published image and sandbox credentials.
+
+- [Training and evaluation](docs/TRAINING.md)
+- [Source provenance and completeness](docs/SOURCE_COMPLETENESS.md)
+- [Patch limitations](vendor/lean-verifier-env/README.md)
+- [Historical upstream README](docs/UPSTREAM_README.md) (some commands are stale)
+- [Regression examples](examples/README.md)
+
+## Validation boundary
+
+Complete single/repair/tool/step rollouts with simulated model responses and
+real Lean checks, tool retries, repair feedback, tactic completion,
+recursive final scoring, source coverage, dataset isolation, script client setup,
+and package builds are tested. Training TOMLs are schema-validated against Prime
+RL v0.6.0. GPU training, live inference calls, hosted sandbox rollouts, and Docker
+builds have not been run here. The Docker daemon was unavailable. Training
+configs are starting templates, not evidence of a completed training run.
+
+The patch accepts tactic bodies or exact standalone declarations; arbitrary
+full Lean files with surrounding declarations are unsupported. This is not an
+exhaustive verifier soundness audit.
+
+Upstream author: **Pradheep**. Original declared license: MIT. Authorship and
+license metadata are retained.
