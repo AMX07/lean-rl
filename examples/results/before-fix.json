@@ -1,0 +1,204 @@
+[
+  {
+    "case": "correct",
+    "lean_accepts": true,
+    "env_verified": 1.0,
+    "rewards": {
+      "binary": 1.0,
+      "shaped": 1.15,
+      "process": 1.3
+    },
+    "error_kind": "verified",
+    "feedback": "",
+    "metrics": {
+      "verified": 1.0,
+      "syntax_ok": 1.0,
+      "typecheck_ok": 1.0,
+      "progress": 1.0,
+      "forbidden": 0.0,
+      "wrong_theorem": 0.0,
+      "axiom_violation": 0.0,
+      "axiom_audit_ran": 1.0,
+      "verified_without_axiom_audit": 0.0,
+      "timeout": 0.0,
+      "checked": 1.0,
+      "full_declaration": 0.0,
+      "proof_len": 3.0,
+      "check_ms": 313.6099580442533
+    },
+    "printed_theorem": null
+  },
+  {
+    "case": "buggy_implementation",
+    "lean_accepts": false,
+    "env_verified": 0.0,
+    "rewards": {
+      "binary": 0.0,
+      "shaped": 0.15000000000000002,
+      "process": 0.0
+    },
+    "error_kind": "proof_error",
+    "feedback": "Tactic `rfl` failed: The left-hand side let result := n + 2; result is not definitionally equal to the right-hand side n + 1 n : Nat \u22a2 (let result := n + 2; result) = n + 1",
+    "metrics": {
+      "verified": 0.0,
+      "syntax_ok": 1.0,
+      "typecheck_ok": 1.0,
+      "progress": 0.0,
+      "forbidden": 0.0,
+      "wrong_theorem": 0.0,
+      "axiom_violation": 0.0,
+      "axiom_audit_ran": 0.0,
+      "verified_without_axiom_audit": 0.0,
+      "timeout": 0.0,
+      "checked": 1.0,
+      "full_declaration": 0.0,
+      "proof_len": 3.0,
+      "check_ms": 45.02291698008776
+    },
+    "printed_theorem": null
+  },
+  {
+    "case": "incomplete_proof",
+    "lean_accepts": false,
+    "env_verified": 0.0,
+    "rewards": {
+      "binary": 0.0,
+      "shaped": 0.15000000000000002,
+      "process": 0.0
+    },
+    "error_kind": "proof_error",
+    "feedback": "unsolved goals n : Nat \u22a2 (let result := n + 1; result) = n + 1",
+    "metrics": {
+      "verified": 0.0,
+      "syntax_ok": 1.0,
+      "typecheck_ok": 1.0,
+      "progress": 0.0,
+      "forbidden": 0.0,
+      "wrong_theorem": 0.0,
+      "axiom_violation": 0.0,
+      "axiom_audit_ran": 0.0,
+      "verified_without_axiom_audit": 0.0,
+      "timeout": 0.0,
+      "checked": 1.0,
+      "full_declaration": 0.0,
+      "proof_len": 4.0,
+      "check_ms": 44.314707978628576
+    },
+    "printed_theorem": null
+  },
+  {
+    "case": "forbidden_placeholder",
+    "lean_accepts": false,
+    "env_verified": 0.0,
+    "rewards": {
+      "binary": 0.0,
+      "shaped": 0.0,
+      "process": 0.0
+    },
+    "error_kind": "forbidden",
+    "feedback": "Proof rejected: sorry",
+    "metrics": {
+      "verified": 0.0,
+      "syntax_ok": 0.0,
+      "typecheck_ok": 0.0,
+      "progress": 0.0,
+      "forbidden": 1.0,
+      "wrong_theorem": 0.0,
+      "axiom_violation": 0.0,
+      "axiom_audit_ran": 0.0,
+      "verified_without_axiom_audit": 0.0,
+      "timeout": 0.0,
+      "checked": 0.0,
+      "full_declaration": 0.0,
+      "proof_len": 5.0,
+      "check_ms": 0.0
+    },
+    "printed_theorem": null
+  },
+  {
+    "case": "harmless_comment",
+    "lean_accepts": true,
+    "env_verified": 0.0,
+    "rewards": {
+      "binary": 0.0,
+      "shaped": 0.0,
+      "process": 0.0
+    },
+    "error_kind": "forbidden",
+    "feedback": "Proof rejected: sorry",
+    "metrics": {
+      "verified": 0.0,
+      "syntax_ok": 0.0,
+      "typecheck_ok": 0.0,
+      "progress": 0.0,
+      "forbidden": 1.0,
+      "wrong_theorem": 0.0,
+      "axiom_violation": 0.0,
+      "axiom_audit_ran": 0.0,
+      "verified_without_axiom_audit": 0.0,
+      "timeout": 0.0,
+      "checked": 0.0,
+      "full_declaration": 0.0,
+      "proof_len": 29.0,
+      "check_ms": 0.0
+    },
+    "printed_theorem": null
+  },
+  {
+    "case": "extra_assumption",
+    "lean_accepts": true,
+    "env_verified": 1.0,
+    "rewards": {
+      "binary": 1.0,
+      "shaped": 1.15,
+      "process": 1.3
+    },
+    "error_kind": "verified",
+    "feedback": "",
+    "metrics": {
+      "verified": 1.0,
+      "syntax_ok": 1.0,
+      "typecheck_ok": 1.0,
+      "progress": 1.0,
+      "forbidden": 0.0,
+      "wrong_theorem": 0.0,
+      "axiom_violation": 0.0,
+      "axiom_audit_ran": 1.0,
+      "verified_without_axiom_audit": 0.0,
+      "timeout": 0.0,
+      "checked": 1.0,
+      "full_declaration": 1.0,
+      "proof_len": 145.0,
+      "check_ms": 43.95383293740451
+    },
+    "printed_theorem": {
+      "messages": [
+        {
+          "severity": "info",
+          "pos": {
+            "line": 7,
+            "column": 0
+          },
+          "endPos": {
+            "line": 7,
+            "column": 6
+          },
+          "data": "theorem increment_correct : False \u2192\n  \u2200 (n : Nat),\n    (have result := n + 2;\n      result) =\n      n + 1 :=\nfun h n => False.elim h"
+        },
+        {
+          "severity": "info",
+          "pos": {
+            "line": 8,
+            "column": 0
+          },
+          "endPos": {
+            "line": 8,
+            "column": 6
+          },
+          "data": "'increment_correct' does not depend on any axioms"
+        }
+      ],
+      "env": 31
+    }
+  }
+]
