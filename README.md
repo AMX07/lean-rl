@@ -1,9 +1,8 @@
 # Lean verifier RL environment
 
-A complete copy of the **published source** of `pradheep/lean-verifier-env@0.10.0`,
-with local correctness fixes, reproducible dependencies, training templates,
-evaluation/search scripts, container setup, and tests. Local version:
-`0.10.0+local.2`. This is an independent derivative, not an upstream release.
+A Lean proof-verification environment for reinforcement learning, with
+reproducible dependencies, training templates, evaluation/search scripts,
+container setup, and tests.
 
 The environment gives a model a Lean theorem, checks its submitted proof with
 Lean, and returns rewards for RL or evaluation. It does not translate Python
